@@ -10,10 +10,11 @@ body {
     font-size: 17px;
     background-color: #eaeaeb;
     font-family: tahoma;
-    margin-left: 10px;
+    margin-left: auto;
     display: flex;
     flex-direction: column;
-    width: 98vw;
+    width: 100%;
+    max-width: 1000px;
 }
 
 .navbar .topnav ul li {
@@ -167,6 +168,8 @@ p {
 }
 .projects ul li {
     list-style-type: none;
+    gap: 5px;
+    display: flex;
 }
 
 .contacts ul li {
@@ -224,15 +227,13 @@ summary {
 
     .description {
         width: 95vw;
-        margin-left: 1px;
-        display: block;
+        margin-left: 5px solid blue;
         color: white;
         background-color: rgb(28, 25, 77);
     }
-    .description li {
+    .description ol li {
         text-transform: capitalize;
-        font-size: 17px;
-        display: block;
+        font-size: 20px;
         gap: 3px;
     }
 
@@ -261,14 +262,15 @@ summary {
 
     .skills {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 50px;
     }
 
     .trouble-shooting {
-        width: 90vw;
-        height: 30vh;
+        width: 100%;
+        height: auto;
         margin-left: 1px;
         border-radius: 4px;
+        max-width: 400px;
     }
 
     p {
@@ -328,8 +330,8 @@ summary {
         height: 500px;
     }
 
-     #footer .contacts ul li {
-        display: block;
+     #footer .contacts ul li  a{
+        display: flex;
         gap: 100px;
 
     }
@@ -358,4 +360,67 @@ summary {
         list-style-type: none;
         display: inline-block;
     }
+}
+.problem{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.EngineeringProjects{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#skills{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#skills hover{
+    color: blue;
+}
+.ProjectEngineering{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.proj{
+    margin-top: 50px;
+    margin-left: 20px;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+.one{
+    margin-top: 40px;
+    margin-left: 20px;
+}
+.two{
+    margin-top: 40px;
+    margin-left: 20px;
+}
+.three{
+    margin-top: 40px;
+    margin-left: 20px;
+}
+.four{
+    margin-top: 40px;
+    margin-left: 20px;
+}
+.passionate{
+    margin-top: 100px;
+    margin-left:10px;
+    margin-bottom: 100px;
+    text-transform: capitalize;
+}
+.collaborate{
+    margin-top: 100px;
+    margin-left:10px;
+    margin-bottom: 100px;
+    text-transform: capitalize;
+}
+.develop{
+    margin-top: 100px;
+    margin-left:10px;
+    margin-bottom: 100px;
+    text-transform: capitalize;
+    margin-right: 20px;
+}
+.groups{
+    font-size: 30px;
 }
