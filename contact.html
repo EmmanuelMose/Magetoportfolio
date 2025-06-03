@@ -8,58 +8,55 @@
 </head>
 <body>
   <div class="container">
-        <div class="navbar">
-           
-            <nav class="topnav">
-                <ul>
-                    <li><a href="https://www.google.com/">Home</a></li>
-                    <li><a href="about.html">about</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    
-                </ul>
-            </nav>
-        </div>
-
-  <form class="contact-form">
-    <h2>Contact Us</h2>
-
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" placeholder="Your full name" required />
-
-    <label for="location">Location</label>
-    <input type="text" id="location" name="location" placeholder="Your location" required />
-
-    <label for="email">Username (Email)</label>
-    <input type="email" id="email" name="email" placeholder="you@example.com" required />
-
-    <label for="phone">Phone Number</label>
-    <div class="phone-group">
-      <select id="countryCode" name="countryCode" required>
-        <option value="">Loading...</option>
-      </select>
-      <input type="tel" name="phone" pattern="[0-9]{6,15}" placeholder="Phone number" required />
+    <div class="navbar">
+      <nav class="topnav">
+        <ul>
+          <li><a href="https://www.google.com/">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
     </div>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+    <form class="contact-form">
+      <h2>Contact Us</h2>
 
-    <button type="submit">Submit</button>
-  </form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
 
-  
-  <div id="footer">
-    <div class="contacts">
-        <h2 name="contacts">contact info:</h2>
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" placeholder="Your location" required />
+
+      <label for="email">Username (Email)</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="phone">Phone Number</label>
+      <div class="phone-group">
+        <select id="countryCode" name="countryCode" required>
+          <option value="">Loading...</option>
+        </select>
+        <input type="tel" name="phone" pattern="[0-9]{6,15}" placeholder="Phone number" required />
+      </div>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="footer">
+      <div class="contacts">
+        <h2>Contact Info:</h2>
         <ul>
-         <li>
-            <a href=""> <img src="/images/facebook.png" alt="facebook" id="icons"></a>
-         </li>
-         <li> <a href="https://wa.me/+254718146250"> <img src="/images/whatsapp.png"alt="whatsapp" id="icons"></a></li>
-         <li> <a href=" "> <img src="/images/linkedin.png" alt="linkedln" id="icons"></a></li>
-         <li> <a href=""> <img src="/images/twitter.png" alt="Twitter" id="icons"></a></li>
-         <li> <a href="mailto:emmanuelmose806@gmail.com"> <img src="/images/email.png" alt="email" id="icons"></a></li>
-         
+          <li><a href="#"><img src="/images/facebook.png" alt="Facebook" id="icons"></a></li>
+          <li><a href="https://wa.me/+254718146250"><img src="/images/whatsapp.png" alt="WhatsApp" id="icons"></a></li>
+          <li><a href="#"><img src="/images/linkedin.png" alt="LinkedIn" id="icons"></a></li>
+          <li><a href="#"><img src="/images/twitter.png" alt="Twitter" id="icons"></a></li>
+          <li><a href="mailto:emmanuelmose806@gmail.com"><img src="/images/email.png" alt="Email" id="icons"></a></li>
         </ul>
+      </div>
+    </div>
+  </div>
 
   <script>
     async function loadCountryCodes() {
@@ -84,12 +81,6 @@
               option.textContent = `${dialCode} (${name})`;
               select.appendChild(option);
             });
-          } else if (root) {
-            const dialCode = root;
-            const option = document.createElement('option');
-            option.value = dialCode;
-            option.textContent = `${dialCode} (${name})`;
-            select.appendChild(option);
           }
         });
       } catch (error) {
@@ -101,6 +92,5 @@
 
     window.onload = loadCountryCodes;
   </script>
-
 </body>
 </html>
