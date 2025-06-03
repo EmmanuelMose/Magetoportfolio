@@ -310,5 +310,11 @@ footer {
     max-height: 250px;
   }
 }
-
+.ul description {
+  list-style-type: none;
+  padding: 0;
+}
+.description  ul li h4 {
+  text-decoration: none;
+}
 
