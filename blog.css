@@ -25,7 +25,7 @@ a {
 
 /* Header */
 header {
-  background-color: #1D3557;
+  background-color: #ADD8E6; /* light blue */
   color: white;
   padding: 1rem 0;
 }
@@ -34,17 +34,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-nav a {
-  color: white;
-  font-weight: 600;
 }
 
 /* Hero */
@@ -97,18 +86,20 @@ nav a {
   margin-bottom: 0.7rem;
 }
 
+/* Button */
 .btn {
   display: inline-block;
   margin-top: 0.5rem;
-  background: #E63946;
-  color: white;
+  background: #2196F3; /* blue */
+  color: black;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 
 .btn:hover {
-  background: #d62828;
+  background: black;
+  color: white;
 }
 
 /* Posts Grid */
@@ -125,7 +116,7 @@ nav a {
 /* Footer */
 footer {
   text-align: center;
-  background: #1D3557;
+  background: #ADD8E6; /* light blue */
   color: white;
   padding: 1rem 0;
   margin-top: 2rem;

@@ -17,6 +17,15 @@ h1, h2, h3, h5 {
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+#content h1,
+#content h2,
+#content h3,
+#content h5,
+#content p {
+    text-align: left;
 }
 
 #p {
@@ -25,7 +34,7 @@ h1, h2, h3, h5 {
 }
 
 .contacts {
-    background-color: blue;
+    background-color: lightblue;
     padding: 15px;
     color: white;
     border-radius: 5px;
@@ -34,7 +43,7 @@ h1, h2, h3, h5 {
 .contacts ul {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 40px;
     padding: 0;
 }
 
@@ -45,7 +54,7 @@ h1, h2, h3, h5 {
 .contacts #icons {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
+    border-radius: 10px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -57,12 +66,20 @@ h1, h2, h3, h5 {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.useful-links h1 {
+    text-align: center;
 }
 
 .useful-links ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid blue;
+    gap: 50px;
 }
 
 .useful-links li {
@@ -72,11 +89,10 @@ h1, h2, h3, h5 {
 .useful-links a {
     text-decoration: none;
     font-weight: bold;
-    color: blue;
+    color: black;
     transition: 0.3s ease-in-out;
 }
 
 .useful-links a:hover {
-    color: black;
+    color: blue;
 }
-

@@ -1,353 +1,476 @@
+/* Reset and base styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: Tahoma, sans-serif;
-  font-size: 17px;
-  color: #0f0b0b;
-  background-color: #eaeaeb;
-  max-width: 1000px;
-  margin: auto;
-  line-height: 1.6;
+    font-family: Tahoma, sans-serif;
+    font-size: 17px;
+    color: #0f0b0b;
+    background-color: #eaeaeb;
+    max-width: 1000px;
+    margin: auto;
+    line-height: 1.6;
 }
 
+/* Navbar styles */
 .navbar .topnav ul {
-  display: flex;
-  list-style: none;
-  background-color: #d9e2e1;
-  padding: 10px;
-  justify-content: space-around;
-  flex-wrap: wrap;
+    display: flex;
+    list-style: none;
+    background-color: lightblue;
+    padding: 10px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 .topnav a {
-  text-decoration: none;
-  font-size: 18px;
-  color: #000;
-  font-family: 'Courier New', Courier, monospace;
-  padding: 8px;
-  transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 18px;
+    color: #000;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 8px;
+    transition: all 0.3s ease;
 }
 
 .topnav a:hover {
-  border-top: 1px solid blue;
-  border-bottom: 1px solid blue;
-  color: black;
+    border-top: 1px solid blue;
+    border-bottom: 1px solid blue;
+    color: blue;
 }
 
+/* Welcome section */
 #welcome {
-  text-align: center;
-  font-size: 25px;
-  text-decoration: underline;
-  margin: 20px 0;
+    text-align: center;
+    font-size: 25px;
+    text-decoration: underline;
+    margin: 20px 0;
+    color: blue;
 }
 
+/* Profile and Resume section */
 .updated-profile {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 40px;
-  background-color: white;
-  padding: 20px;
-  flex-wrap: wrap;
-  align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+    background-color: white;
+    padding: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .profile-column {
-  flex: 1;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: -20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .profile-column img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .text-below-image {
-  margin-top: 20px;
-  text-align: center;
+    margin-top: 20px;
+    text-align: left;
 }
 
 .resume-column {
-  flex: 0 0 200px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 20px;
+    flex: 0 0 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
 }
 
 #resumeBtn,
 #resumeBtn2 {
-  padding: 10px 30px;
-  font-size: 18px;
-  background-color: blue;
-  color: white;
-  border: 2px solid black;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 10px;
+    padding: 10px 30px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#resumeBtn {
+    margin-top: 200px;
 }
 
 #resumeBtn a,
 #resumeBtn2 a {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 #resumeBtn:hover,
 #resumeBtn2:hover {
-  background-color: white;
-  color: black;
+    background-color: black;
+    color: white;
 }
 
+/* Sections */
 .skills,
 .EngineeringProjects,
 .experience {
-  padding: 20px;
-  text-align: center;
+    padding: 20px;
+    text-align: center;
 }
 
 .skills h2,
 .experience h2 {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
+/* Samples */
 .samples li {
-  display: inline-block;
-  margin: 10px;
+    display: inline-block;
+    margin: 10px;
 }
 
+/* Image styling */
 .trouble-shooting {
-  width: 300px;
-  max-width: 90vw;
-  height: auto;
-  border-radius: 5px;
+    width: 300px;
+    max-width: 90vw;
+    height: auto;
+    border-radius: 5px;
 }
 
+/* Text styles */
 .problem {
-  margin-top: 20px;
-  font-weight: bold;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 .passionate,
 .collaborate,
 .develop {
-  padding: 10px;
+    padding: 10px;
+    text-align: left;
 }
 
 details {
-  margin: 20px 0;
+    margin: 20px 0;
 }
 
 .groups {
-  cursor: pointer;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
 }
 
+/* Footer */
 footer {
-  padding: 20px;
-  background-color: #f2f2f2;
-  margin-top: 40px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    margin-top: 40px;
 }
 
 .contacts,
 .usefullinks {
-  text-align: center;
+    text-align: center;
 }
 
 .contacts h2,
 .usefullinks h1 {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
+    
 }
 
 .contactinfo {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 50px;
-  margin-top: 10px;
-  margin-left: 20px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 .usefullinks ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .usefullinks ul li a {
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  background-color: #007bff;
-  border-radius: 50%;
-  line-height: 60px;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  text-align: center;
-  transition: background-color 0.3s;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    border-radius: 50%;
+    line-height: 60px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s;
 }
 
 .usefullinks ul li a:hover {
-  background-color: #0056b3;
+    background-color: black;
 }
 
+/* Icon styling */
 #icons {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: transform 0.3s;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s;
 }
 
 #icons:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
+/* Dedication text */
 #dedication {
-  color: #110336;
-  font-size: 14px;
-  margin-top: 20px;
+    color: #110336;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+/* Responsive styles */
+@media (min-width: 769px) {
+    .profile-column {
+        margin-left: 0;
+    }
+
+    .resume-column {
+        margin-top: 100px;
+        align-items: flex-end;
+    }
+
+    .updated-profile {
+        padding-left: 20px;
+        padding-right: 20px;
+        justify-content: flex-start;
+    }
 }
 
 @media (max-width: 768px) {
-  .updated-profile {
-    flex-direction: column;
-    align-items: center;
-  }
+    .updated-profile {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        justify-content: center;
+    }
 
-  .profile-column {
-    margin-left: 0;
-  }
+    .profile-column {
+        margin-left: 0;
+        align-items: center;
+    }
 
-  .topnav ul {
-    flex-direction: column;
-    align-items: center;
-  }
+    .topnav ul {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .topnav a {
-    padding: 10px;
-  }
+    .topnav a {
+        padding: 10px;
+    }
 
-  .trouble-shooting {
-    width: 90%;
-  }
+    .trouble-shooting {
+        width: 90%;
+    }
 
-  .contactinfo {
-    margin-left: 0;
-    gap: 20px;
-  }
+    .contactinfo {
+        margin-left: 0;
+        gap: 20px;
+    }
 
-  .usefullinks ul li a {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    font-size: 12px;
-  }
+    .usefullinks ul li a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 480px) {
-  body {
-    font-size: 15px;
-  }
+    body {
+        font-size: 15px;
+    }
 
-  #resumeBtn,
-  #resumeBtn2 {
-    padding: 8px 20px;
-    font-size: 16px;
-  }
+    #resumeBtn,
+    #resumeBtn2 {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
 
-  #icons {
-    width: 35px;
-    height: 35px;
-  }
+    #icons {
+        width: 35px;
+        height: 35px;
+    }
 }
 
+/* Business Highlights Section */
 .business-highlights {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
 }
 
 .top-row,
 .bottom-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .highlight-box {
-  flex: 1 1 30%;
-  background-color: #e0f7fa;
-  padding: 15px;
-  text-align: center;
-  border-radius: 10px;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    flex: 1 1 30%;
+    background-color: #e0f7fa;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .highlight-box img {
-  width: 100%;
-  height: 100%;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .text-box {
-  background-color: #d1c4e9;
-  color: #111;
+    background-color: #d1c4e9;
+    color: #111;
+    text-align: left;
 }
 
 .text-box h4 {
-  margin-bottom: 10px;
-  font-size: 18px;
-  text-decoration: underline;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-decoration: underline;
+    text-align: left;
 }
 
 .text-box p {
-  font-size: 16px;
-  line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
 }
 
+hr {
+    width: 100%;
+    height: 5px;
+    background-color: #000;
+    border: none;
+    margin: 20px 0;
+}
+
+/* ======= New styles for image left + content right with 30px gap ======= */
+.project-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.image-content {
+    flex: 0 0 auto;
+    max-width: 300px;
+}
+
+.image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.text-content {
+    flex: 1 1 auto;
+    min-width: 250px;
+    text-align: left;
+}
+
+/* Responsive stack */
+@media (max-width: 600px) {
+    .project-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .image-content {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .text-content {
+        min-width: auto;
+    }
+}
+
+/* ======= Updated Description List with Image on Left ======= */
 ul.description {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-ul.description li {
-  flex: 1 1 auto;
-  text-decoration: none;
-  margin: 10px;
-  text-align: center;
+ul.description li:last-child {
+    flex: 0 0 auto;
+    max-width: 300px;
+    color: blue;
 }
 
-ul.description li h4 {
-  text-decoration: none;
+ul.description li:last-child img.trouble-shooting {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+ul.description li:not(:last-child) {
+    flex: 1 1 100%;
+    display: block;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+ul.description li:not(:last-child) h4 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+.skillsone{
+    color: blue;
+}
+
+.experience h2{
+    color: blue;
+}
+.contacts h2 {
+    color: blue;
+}
+.usefullinks h1 {
+    color: blue;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

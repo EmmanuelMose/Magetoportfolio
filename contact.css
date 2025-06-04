@@ -17,10 +17,11 @@ body {
 
 .topnav ul {
   margin-left: 20px;
+
 }
 
 .topnav {
-  background-color: blue;
+  background-color: lightblue;
   padding: 10px;
   border-radius: 5px;
   text-align: center;
@@ -97,10 +98,11 @@ body {
 }
 
 #footer {
-  background-color: blue;
+  background-color: lightblue;
   color: white;
-  padding: 20px;
+  padding: 50px;
   text-align: center;
+  height: 70px;
 }
 
 .contacts ul {
