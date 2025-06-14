@@ -1,4 +1,4 @@
-/* Reset and base */
+
 * {
   margin: 0;
   padding: 0;
@@ -9,13 +9,19 @@ body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: #343A40;
-  background-color: #F1FAEE;
+  overflow-x: hidden;
+  margin: 50px; 
 }
 
-a {
-  color: #E63946;
-  text-decoration: none;
+#bgCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
 }
+
 
 .container {
   width: 90%;
@@ -23,34 +29,103 @@ a {
   margin: auto;
 }
 
-/* Header */
-header {
-  background-color: #ADD8E6; /* light blue */
-  color: white;
-  padding: 1rem 0;
+
+.frame {
+  margin: 30px 0;
 }
 
-.nav {
+
+.navbar {
+  width: calc(100% - 40px);
+  background-color: lightblue;
+  margin: 20px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.topnav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+  height: 100%;
+  position: relative;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+
+.topnav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.topnav a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #000;
+  padding: 8px;
+  transition: all 0.3s ease;
+}
+
+.topnav a:hover {
+  border-top: 1px solid blue;
+  border-bottom: 1px solid blue;
+  color: blue;
+}
+
+@media (max-width: 768px) {
+  .topnav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .topnav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 20px;
+  }
+
+  .topnav ul.show {
+    display: flex;
+  }
+  
+
+  .topnav a {
+    padding: 10px 0;
+    width: 100%;
+    text-align: left;
+  }
 }
 
 /* Hero */
 .hero {
-  background: url('https://source.unsplash.com/1600x400/?kenya') no-repeat center center/cover;
-  color: white;
   height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: white;
 }
 
 .hero-text {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: white;
   padding: 1rem 2rem;
   border-radius: 10px;
+  color: black;
 }
 
 .hero h2 {
@@ -61,18 +136,28 @@ header {
   font-size: 1.2rem;
 }
 
-/* Featured */
-.featured {
+/* Featured and Posts */
+.featured, .posts {
   background-color: white;
   padding: 2rem 0;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
 .post-card {
-  background-color: #F1FAEE;
+  background-color: lightblue;
   padding: 1.5rem;
   border-radius: 12px;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-left: 20px;
+  width: 300px;
+  align-content: center;
+  align-self: center;
+  margin-top: 20px;
+  
 }
 
 .post-card h4 {
@@ -89,8 +174,9 @@ header {
 /* Button */
 .btn {
   display: inline-block;
-  margin-top: 0.5rem;
-  background: #2196F3; /* blue */
+  text-decoration: none;
+  margin-top: 30px;
+  background: blue;
   color: black;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -102,22 +188,12 @@ header {
   color: white;
 }
 
-/* Posts Grid */
-.posts {
-  padding: 2rem 0;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
 /* Footer */
 footer {
   text-align: center;
-  background: #ADD8E6; /* light blue */
-  color: white;
+  background: #ADD8E6;
+  color: black;
   padding: 1rem 0;
   margin-top: 2rem;
+  margin-bottom: 20px; /* Added bottom margin */
 }

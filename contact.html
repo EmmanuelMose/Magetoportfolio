@@ -3,94 +3,140 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Form</title>
+  <title>Contact</title>
   <link rel="stylesheet" href="contact.css">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 </head>
 <body>
+  <canvas id="bgCanvas"></canvas>
+
   <div class="container">
-    <div class="navbar">
+    <header class="navbar">
       <nav class="topnav">
-        <ul>
-          <li><a href="http://127.0.0.1:5500/index.html">Home</a></li>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul id="nav-list">
+          <li><a href="https://www.google.com/">Home</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="blog.html">Blog</a></li>
         </ul>
       </nav>
-    </div>
+    </header>
 
-    <form class="contact-form">
-      <h2>Contact Us</h2>
+    <section class="contact-wrapper">
+      <div class="contact-left">
+        <h2>Contact Me</h2>
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your Name" required>
 
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" placeholder="Your full name" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your@email.com" required>
 
-      <label for="location">Location</label>
-      <input type="text" id="location" name="location" placeholder="Your location" required />
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Write your message here..." required></textarea>
 
-      <label for="email">Username (Email)</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required />
-
-      <label for="phone">Phone Number</label>
-      <div class="phone-group">
-        <select id="countryCode" name="countryCode" required>
-          <option value="">Loading...</option>
-        </select>
-        <input type="tel" name="phone" pattern="[0-9]{6,15}" placeholder="Phone number" required />
+          <button type="submit">Send Message</button>
+        </form>
       </div>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
-
-      <button type="submit">Submit</button>
-    </form>
-
-    <div id="footer">
-      <div class="contacts">
-        <h2>Contact Info:</h2>
+      <div class="contact-right">
+        <h3>Let's Connect</h3>
         <ul>
-          <li><a href="#"><img src="/images/facebook.png" alt="Facebook" id="icons"></a></li>
-          <li><a href="https://wa.me/+254718146250"><img src="/images/whatsapp.png" alt="WhatsApp" id="icons"></a></li>
-          <li><a href="#"><img src="/images/linkedin.png" alt="LinkedIn" id="icons"></a></li>
-          <li><a href="#"><img src="/images/twitter.png" alt="Twitter" id="icons"></a></li>
-          <li><a href="mailto:emmanuelmose806@gmail.com"><img src="/images/email.png" alt="Email" id="icons"></a></li>
+          <li><a href=""></a><img src="./images/email.png" alt="Email icon"> Email</li>
+          <li><a href=""></a><img src="./images/whatsapp.png" alt="WhatsApp icon"> WhatsApp</li>
+          <li><a href=""></a><img src="./images/linkedin.png" alt="LinkedIn icon"> LinkedIn</li>
+          <li><a href=""></a><img src="./images/facebook.png" alt="Facebook icon"> Facebook</li>
+          <li><a href=""></a><img src="./images/facebook.png" alt="instagram"> instagram</li>
+          <li><a href=""></a><img src="./images/facebook.png" alt="twitter"> Twitter</li>
+          <li><a href=""></a><img src="./images/facebook.png" alt="telegram"> telegram</li>
+         
+          
         </ul>
+<div class="contact-location">
+  <h4>Location</h4>
+  <p>Based in Nairobi, Kenya</p>
+  <p>Available for remote work worldwide</p>
+</div>
+
       </div>
+    </section>
+  </div>
+  <footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h2>Mageto Mose</h2>
+      <p></p>
+    </div>
+    <div class="footer-icons">
+      <a href="#"><img src="./images/github.png" alt="GitHub" /></a>
+      <a href="#"><img src="./images/linkedin.png" alt="LinkedIn" /></a>
+      <a href="#"><img src="./images/twitter.png" alt="Twitter" /></a>
+      <a href="#"><img src="./images/facebook.png" alt="facebook" /></a>
+      
     </div>
   </div>
+  <hr />
+  <p class="footer-bottom">© 2025 George Mageto. All rights reserved.</p>
+</footer>
+
 
   <script>
-    async function loadCountryCodes() {
-      try {
-        const res = await fetch('https://restcountries.com/v3.1/all');
-        const countries = await res.json();
+    const canvas = document.getElementById("bgCanvas");
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
 
-        countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
-        const select = document.getElementById('countryCode');
-        select.innerHTML = '<option value="">Select Code</option>';
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.z = 50;
 
-        countries.forEach(country => {
-          const name = country.name?.common || 'Unknown';
-          const root = country.idd?.root;
-          const suffixes = country.idd?.suffixes;
+    const particleCount = 300;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
 
-          if (root && suffixes && suffixes.length > 0) {
-            suffixes.forEach(suffix => {
-              const dialCode = root + suffix;
-              const option = document.createElement('option');
-              option.value = dialCode;
-              option.textContent = `${dialCode} (${name})`;
-              select.appendChild(option);
-            });
-          }
-        });
-      } catch (error) {
-        console.error('Error fetching country codes:', error);
-        document.getElementById('countryCode').innerHTML =
-          '<option value="">Failed to load codes</option>';
-      }
+    for (let i = 0; i < particleCount * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 200;
     }
 
-    window.onload = loadCountryCodes;
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const material = new THREE.PointsMaterial({
+      color: 0xcccccc,
+      size: 2,
+      sizeAttenuation: true,
+      transparent: true,
+      opacity: 0.4
+    });
+
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    function animate() {
+      const pos = geometry.attributes.position.array;
+      for (let i = 1; i < pos.length; i += 3) {
+        pos[i] -= 0.05;
+        if (pos[i] < -100) pos[i] = 100;
+      }
+      geometry.attributes.position.needsUpdate = true;
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    const toggleBtn = document.getElementById('menu-toggle');
+    const navList = document.getElementById('nav-list');
+    toggleBtn.addEventListener('click', () => {
+      navList.classList.toggle('show');
+    });
   </script>
 </body>
 </html>

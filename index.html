@@ -5,21 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>George Mageto</title>
     <link rel="stylesheet" href="styles.css" />
+     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 </head>
+
 <body>
+<header>
+    <canvas id="bgCanvas"></canvas>
     <div class="container">
-        <header class="navbar">
-            <nav class="topnav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                </ul>
-            </nav>
-        </header>
+    <header class="navbar">
+    <nav class="topnav">
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul id="nav-list">
+            <li><a href="https://www.google.com/">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+</header>
+
 
         <h3 id="welcome">PORTFOLIO</h3>
         <div id="alert"></div>
@@ -182,11 +188,68 @@
         </footer>
     </div>
     <hr>
+    
+     <script>
+    document.getElementById('resumeBtn')?.addEventListener('click', () => {
+      document.getElementById('resumeBtn').textContent = 'Downloaded Resume';
+    });
 
-    <script>
-        document.getElementById('resumeBtn')?.addEventListener('click', () => {
-            document.getElementById('resumeBtn').textContent = 'Downloaded Resume';
-        });
-    </script>
+    const canvas = document.getElementById("bgCanvas");
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.z = 50;
+
+    const particleCount = 300;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < particleCount * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 200;
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const material = new THREE.PointsMaterial({
+      color: 0xcccccc, // soft gray for subtle particles on white
+      size: 2,
+      sizeAttenuation: true,
+      transparent: true,
+      opacity: 0.4
+    });
+
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    function animate() {
+      const positions = geometry.attributes.position.array;
+      for (let i = 1; i < positions.length; i += 3) {
+        positions[i] -= 0.05;
+        if (positions[i] < -100) positions[i] = 100;
+      }
+      geometry.attributes.position.needsUpdate = true;
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+     const toggleBtn = document.getElementById('menu-toggle');
+    const navList = document.getElementById('nav-list');
+
+    toggleBtn.addEventListener('click', () => {
+        navList.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>

@@ -1,47 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>services</title>
-    <link rel="stylesheet" href="services.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services</title>
+  <link rel="stylesheet" href="services.css" />
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 </head>
 <body>
-<h1>SERVICES</h1>
-<hr>
-<ul><h2>Engineering Services</h2>
-  <li>Residential and commercial electrical works</li>
-  <li>Smart systems installation</li>
-  <li>Networking and telecom services</li>
-  <li>Import & Logistics</li>
-  <li>Product sourcing</li>
-  <li>Customs guidance</li>
-  <li>Bulk supply for SMEs</li>
-</ul>
-<hr>
- <ul><h2>Business Consultancy</h2>
-     <li>Business launch & planning</li>
-     <li>Branding and systems strategy</li>
-     <li>Growth consultancy</li>
-</ul>
-<hr>
-  <ul><h2>Media & Digital</h2>
-     <li>Video production & scripting</li>
-     <li>Content consulting</li>
-     <li>Media campaigns (LUK Kenya)</li>
-  </ul>
-<hr>
-   <ul><h2> Coaching & Mentorship</h2>
-      <li>Purpose discovery</li>
-      <li>Entrepreneur training</li>
-      <li>Personal development & leadership</li>
-   </ul><br>
-<hr>
-<ul><h1>MY WORK PROCESS</h1>
-    <li>Understand-Define needs and goals</li>
-    <li>Strategize-Design practical solutions</li>
-    <li>Execute-Deliver with focus</li>
-    <li>Evaluate-Review impact</li>
-    <li>Empower-Enable growth beyond me</li>
+    <header>
+    <canvas id="bgCanvas"></canvas>
+    <div class="container">
+    <header class="navbar">
+    <nav class="topnav">
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul id="nav-list">
+            <li><a href="https://www.google.com/">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+</header>
+  <section class="card-wrapper">
+    <div class="service-card">
+      <h2>Engineering Services</h2>
+      <ul>
+        <li>Residential and commercial electrical works</li>
+        <li>Smart systems installation</li>
+        <li>Networking and telecom services</li>
+        <li>Import & Logistics</li>
+        <li>Product sourcing</li>
+        <li>Customs guidance</li>
+        <li>Bulk supply for SMEs</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <h2>Business Consultancy</h2>
+      <ul>
+        <li>Business launch & planning</li>
+        <li>Branding and systems strategy</li>
+        <li>Growth consultancy</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <h2>Media & Digital</h2>
+      <ul>
+        <li>Video production & scripting</li>
+        <li>Content consulting</li>
+        <li>Media campaigns (LUK Kenya)</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <h2>Coaching & Mentorship</h2>
+      <ul>
+        <li>Purpose discovery</li>
+        <li>Entrepreneur training</li>
+        <li>Personal development & leadership</li>
+      </ul>
+    </div>
+  </section>
+
+  <h1>MY WORK PROCESS</h1>
+  <section class="card-wrapper">
+    <div class="service-card">
+      <ul>
+        <li><strong>Understand</strong> - Define needs and goals</li>
+        <li><strong>Strategize</strong> - Design practical solutions</li>
+        <li><strong>Execute</strong> - Deliver with focus</li>
+        <li><strong>Evaluate</strong> - Review impact</li>
+        <li><strong>Empower</strong> - Enable growth beyond me</li>
+      </ul>
+    </div>
+  </section>
+  
+     <script>
+    
+
+    const canvas = document.getElementById("bgCanvas");
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.z = 50;
+
+    const particleCount = 300;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < particleCount * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 200;
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const material = new THREE.PointsMaterial({
+      color: 0xcccccc, // soft gray for subtle particles on white
+      size: 2,
+      sizeAttenuation: true,
+      transparent: true,
+      opacity: 0.4
+    });
+
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    function animate() {
+      const positions = geometry.attributes.position.array;
+      for (let i = 1; i < positions.length; i += 3) {
+        positions[i] -= 0.05;
+        if (positions[i] < -100) positions[i] = 100;
+      }
+      geometry.attributes.position.needsUpdate = true;
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+     const toggleBtn = document.getElementById('menu-toggle');
+    const navList = document.getElementById('nav-list');
+
+    toggleBtn.addEventListener('click', () => {
+        navList.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>

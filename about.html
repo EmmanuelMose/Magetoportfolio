@@ -1,52 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    <link rel="stylesheet" href="about.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me</title>
+  <link rel="stylesheet" href="about.css">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 </head>
 <body>
-    
-    <div id="content">
-        <h1 id="p">Greetings!</h1>
-        <p id="para">
-            I’m <strong>George Mageto Mose</strong>,<br>
-            a passionate Kenyan engineer and purpose-driven entrepreneur.<br>
-            With a strong foundation in Electrical & Electronic Engineering<br>
-            and a Master’s degree in Telecommunication Engineering, I bring a unique edge to solving real-world problems.
-        </p>
+  <canvas id="bgCanvas"></canvas>
 
-        <h2>Founder of:</h2>
-        <h3>Us Know Kenya (LUK Kenya) – Showcasing Kenya’s untapped potential</h3> 
-        <h3>GM Business Services – A one-stop solution for ICT, electronics, and accessories.</h3>
+  <header class="navbar">
+    <nav class="topnav">
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <ul id="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <p>
-            Import Agent at <strong>GMNEX EXPRESS</strong>, linking local markets with global supply chains.<br>
-            As a trainer, coach, and business consultant, I am passionate about helping others discover purpose, develop systems, and succeed sustainably.
-        </p>
+  <div class="about-container">
+    <h1>About Me</h1>
+    <p>
+      I’m <strong>George Mageto Mose</strong>, a passionate Kenyan engineer and purpose-driven entrepreneur. With a strong foundation in Electrical & Electronic Engineering and a Master’s degree in Telecommunication Engineering, I bring a unique edge to solving real-world problems.
 
-        <h5>Experience and Certifications</h5>
-    </div>
 
-    <div class="useful-links">
-        <h1>Quick Links</h1>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Emmanuel_cv.pdf">Download cv</a></li>
-            <li><a href="https://wa.me/+254718146250">Hire Me</a></li>
-            <li><a href="https://wa.me/+254718146250">Enquiries</a></li>
-        </ul>
-    </div>
-    <div class="contacts">
-        <h2>Contact Info:</h2>
-        <ul>
-            <li><a href="#"><img src="/images/facebook.png" alt="Facebook" id="icons"></a></li>
-            <li><a href="https://wa.me/+254718146250"><img src="/images/whatsapp.png" alt="WhatsApp" id="icons"></a></li>
-            <li><a href="#"><img src="/images/twitter.png" alt="Twitter" id="icons"></a></li>
-            <li><a href="mailto:emmanuelmose806@gmail.com"><img src="/images/email.png" alt="Email" id="icons"></a></li>
-        </ul>
-    </div>
+    </p>
+    <!-- More about content here -->
+  </div>
 
+  <div class="useful-links">
+    <h2>Quick Links</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Mageto_cv.pdf">Download CV</a></li>
+      <li><a href="https://wa.me/254724225552">Hire Me</a></li>
+      <li><a href="https://wa.me/+254724225552">Enquiries</a></li>
+    </ul>
+  </div>
+
+  <div class="contacts">
+    <h2>Contact Info:</h2>
+    <ul>
+      <li><a href="https://www.facebook.com/magetogm"><img src="./images/facebook.png" alt="Facebook" id="icons"></a></li>
+      <li><a href="https://wa.me/254724225552"><img src="/images/whatsapp.png" alt="WhatsApp" id="icons"></a></li>
+      <li><a href="mailto:magetogeorge060@gmail.com"><img src="/images/email.png" alt="Email" id="icons"></a></li>
+      <li><a href="https://www.instagram.com/magetogm/"><img src="/images/instagram.png" alt="Instagram" id="icons" /></a></li>
+      <li><a href="https://github.com/George-mose"><img src="/images/github.png" alt="GitHub" id="icons" /></a></li>
+    </ul>
+  </div>
+
+  <script>
+    // Toggle menu
+    const toggleBtn = document.getElementById('menu-toggle');
+    const navList = document.getElementById('nav-list');
+    toggleBtn.addEventListener('click', () => {
+      navList.classList.toggle('show');
+    });
+
+    // Three.js background
+    const canvas = document.getElementById("bgCanvas");
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.z = 50;
+
+    const particleCount = 300;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 200;
+    }
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const material = new THREE.PointsMaterial({
+      color: 0xcccccc,
+      size: 2,
+      sizeAttenuation: true,
+      transparent: true,
+      opacity: 0.4
+    });
+
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    function animate() {
+      const pos = geometry.attributes.position.array;
+      for (let i = 1; i < pos.length; i += 3) {
+        pos[i] -= 0.05;
+        if (pos[i] < -100) pos[i] = 100;
+      }
+      geometry.attributes.position.needsUpdate = true;
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
 </body>
 </html>
