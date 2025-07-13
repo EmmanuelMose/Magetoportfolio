@@ -26,7 +26,7 @@
     <section class="contact-wrapper">
       <div class="contact-left">
         <h2>Contact Me</h2>
-        <form>
+        <form id="contactForm">
           <label for="name">Name</label>
           <input type="text" id="name" placeholder="Your Name" required>
 
@@ -43,45 +43,42 @@
       <div class="contact-right">
         <h3>Let's Connect</h3>
         <ul>
-          <li><a href=""></a><img src="./images/email.png" alt="Email icon"> Email</li>
-          <li><a href=""></a><img src="./images/whatsapp.png" alt="WhatsApp icon"> WhatsApp</li>
-          <li><a href=""></a><img src="./images/linkedin.png" alt="LinkedIn icon"> LinkedIn</li>
-          <li><a href=""></a><img src="./images/facebook.png" alt="Facebook icon"> Facebook</li>
-          <li><a href=""></a><img src="./images/facebook.png" alt="instagram"> instagram</li>
-          <li><a href=""></a><img src="./images/facebook.png" alt="twitter"> Twitter</li>
-          <li><a href=""></a><img src="./images/facebook.png" alt="telegram"> telegram</li>
-         
+          <li><a href="mailto:magetogeorge60@gmail.com"><img src="./images/email.png" alt="Email icon"> Email</a></li>
+          <li><a href="https://wa.me/254724225552"><img src="./images/whatsapp.png" alt="WhatsApp icon"> WhatsApp</a></li>
+          <li><a href="https://www.linkedin.com/in/george-mageto-2aa670257"><img src="./images/linkedin.png" alt="LinkedIn icon"> LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/magetogm"><img src="./images/facebook.png" alt="Facebook icon"> Facebook</a></li>
+          <li><a href="https://www.instagram.com/magetogm/"><img src="./images/instagram.png" alt="Instagram icon"> Instagram</a></li>
           
         </ul>
-<div class="contact-location">
-  <h4>Location</h4>
-  <p>Based in Nairobi, Kenya</p>
-  <p>Available for remote work worldwide</p>
-</div>
 
+        <div class="contact-location">
+          <h4>Location</h4>
+          <p>Based in Nairobi, Kenya</p>
+          <p>Available for remote work worldwide</p>
+        </div>
       </div>
     </section>
   </div>
-  <footer class="footer">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <h2>Mageto Mose</h2>
-      <p></p>
-    </div>
-    <div class="footer-icons">
-      <a href="#"><img src="./images/github.png" alt="GitHub" /></a>
-      <a href="#"><img src="./images/linkedin.png" alt="LinkedIn" /></a>
-      <a href="#"><img src="./images/twitter.png" alt="Twitter" /></a>
-      <a href="#"><img src="./images/facebook.png" alt="facebook" /></a>
-      
-    </div>
-  </div>
-  <hr />
-  <p class="footer-bottom">© 2025 George Mageto. All rights reserved.</p>
-</footer>
 
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2>Mageto Mose</h2>
+        <p></p>
+      </div>
+      <div class="footer-icons">
+        <a href="https://github.com/George-mose"><img src="./images/github.png" alt="GitHub" /></a>
+        <a href="https://www.linkedin.com/in/george-mageto-2aa670257"><img src="./images/linkedin.png" alt="LinkedIn" /></a>
+        <a href="https://www.facebook.com/magetogm"><img src="./images/facebook.png" alt="Facebook" /></a>
+        
+      </div>
+    </div>
+    <hr />
+    <p class="footer-bottom">© 2025 George Mageto. All rights reserved.</p>
+  </footer>
 
   <script>
+    // Background particle animation
     const canvas = document.getElementById("bgCanvas");
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -132,10 +129,28 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
+    // Mobile menu toggle
     const toggleBtn = document.getElementById('menu-toggle');
     const navList = document.getElementById('nav-list');
     toggleBtn.addEventListener('click', () => {
       navList.classList.toggle('show');
+    });
+
+    // WhatsApp form submission
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const whatsappNumber = "254724225552"; // Replace with your WhatsApp number (no + sign)
+      const encodedMessage = encodeURIComponent(
+        `Hello, my name is ${name}.\nEmail: ${email}\nMessage: ${message}`
+      );
+
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+      window.open(whatsappURL, "_blank");
     });
   </script>
 </body>
