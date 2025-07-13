@@ -50,7 +50,7 @@ body {
 .navbar {
     width: 100%;
     background-color: lightblue;
-    height: 100px;
+    height: auto;
     border-radius: 12px;
     margin-top: 20px;
 }

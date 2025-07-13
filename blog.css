@@ -39,7 +39,7 @@ body {
   width: calc(100% - 40px);
   background-color: lightblue;
   margin: 20px;
-  height: 100px;
+  height: auto;
   border-radius: 10px;
 }
 
